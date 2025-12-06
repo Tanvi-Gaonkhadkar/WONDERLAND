@@ -8,7 +8,8 @@ module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         // Store the URL they are trying to access
         req.session.redirectUrl = req.originalUrl;
-        req.flash("error", "You must be logged in to create listings");
+       req.flash("error", "You must be logged in first!");
+
         return res.redirect("/login");  // ✅ redirect to login route
     }
     next();
@@ -16,8 +17,8 @@ module.exports.isLoggedIn = (req, res, next) => {
 
 
 module.exports.saveRedirectUrl=(req,res,next)=>{
-  if(!req.session.redirectUrl){
-    res.locsls.redirectUrl = req.session.redirectUrl;
+  if(req.session.redirectUrl){
+    res.locals.redirectUrl = req.session.redirectUrl;
   }
   next();
 };
@@ -40,6 +41,9 @@ module.exports.validateReview = (req, res, next) => {
     } else {
         next();
     }
+    console.log("Review body:", req.body);
+console.log("reviewSchema:", reviewSchema);
+
 };
 
 module.exports.isReviewAuthor = async (req, res, next) => {

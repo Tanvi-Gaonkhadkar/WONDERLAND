@@ -12,14 +12,13 @@
 
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" name="listing[description] " required>
-<%= listing.description %></textarea>
+          <textarea class="form-control" name="listing[description]" required><%= listing.description %></textarea>
 
         </div>
 
         <div class="mb-3">
           Original Listing Image<br/>
-          <img src="<%=originalImageUrl%>"/>
+          <img src="<%=originalImageUrl%>" class="listing-image"/>
         </div>
 
         <div class="mb-3">
@@ -51,6 +50,25 @@
           <input name="listing[location]" class="form-control" value="<%= listing.location %>" type="text" required/>
           <div class="invalid-feedback">Please enter valid location</div>
         </div>
+<div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select name="listing[category]" class="form-control" required>
+    <option disabled>Select a category</option>
+    <option value="Trending" <%= listing.category === 'Trending' ? 'selected' : '' %>>Trending</option>
+    <option value="Rooms" <%= listing.category === 'Rooms' ? 'selected' : '' %>>Rooms</option>
+    <option value="Iconic Cities" <%= listing.category === 'Iconic Cities' ? 'selected' : '' %>>Iconic Cities</option>
+    <option value="Mountain" <%= listing.category === 'Mountain' ? 'selected' : '' %>>Mountain</option>
+    <option value="Castles" <%= listing.category === 'Castles' ? 'selected' : '' %>>Castles</option>
+    <option value="Amazing Pools" <%= listing.category === 'Amazing Pools' ? 'selected' : '' %>>Amazing Pools</option>
+    <option value="Camping" <%= listing.category === 'Camping' ? 'selected' : '' %>>Camping</option>
+    <option value="Farms" <%= listing.category === 'Farms' ? 'selected' : '' %>>Farms</option>
+    <option value="Arctic" <%= listing.category === 'Arctic' ? 'selected' : '' %>>Arctic</option>
+    <option value="Domes" <%= listing.category === 'Domes' ? 'selected' : '' %>>Domes</option>
+    <option value="Boating" <%= listing.category === 'Boating' ? 'selected' : '' %>>Boating</option>
+  </select>
+  <div class="invalid-feedback">Please select a category</div>
+</div>
+
 
 
 

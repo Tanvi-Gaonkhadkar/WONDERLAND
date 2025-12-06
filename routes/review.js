@@ -7,7 +7,7 @@ const reviewController = require("../controllers/review.js");
 
 // Post Review Route
 router.post(
-  "/:id",
+  "/",
   validateReview,
   wrapAsync(reviewController.createReview)
 );

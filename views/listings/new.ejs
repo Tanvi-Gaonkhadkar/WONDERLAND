@@ -18,18 +18,10 @@
           <textarea name="listing[description]" class="form-control" required placeholder="enter description"></textarea>
 
         </div>
-
-        <div class="mb-3">
-          <label for="image" class="form-label">Image Link</label>
-
-          <input name="listing[image]" class="form-control" placeholder="enter image URL/Link" type="text" />
-        </div>
-
-        <div class="mb-3">
-          <label for="image" class="form-label">Upload Image</label>
-
-          <input name="listing[image]" class="form-control" type="file" />
-        </div>
+<div class="mb-3">
+  <label for="image" class="form-label">Upload Image</label>
+  <input name="listing[image]" class="form-control" type="file" required />
+</div>
 
         <div class="row">
           <div class="mb-3 col-4">
@@ -54,8 +46,30 @@
         </div>
         </br></br>
 
+        <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select name="listing[category]" class="form-control" required>
+    <option disabled selected>Select a category</option>
+    <option value="Trending">Trending</option>
+    <option value="Rooms">Rooms</option>
+    <option value="Iconic Cities">Iconic Cities</option>
+    <option value="Mountain">Mountain</option>
+    <option value="Castles">Castles</option>
+    <option value="Amazing Pools">Amazing Pools</option>
+    <option value="Camping">Camping</option>
+    <option value="Farms">Farms</option>
+    <option value="Arctic">Arctic</option>
+    <option value="Domes">Domes</option>
+    <option value="Boating">Boating</option>
+  </select>
+  <div class="invalid-feedback">Please select a category</div>
+</div>
+
+
 
         <button class="btn btn-dark add-btn">Add</button>
+  
+
       </form>
     </div>
   </div>
