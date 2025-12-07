@@ -129,6 +129,11 @@ body {
    height:30vh; 
 }
 
+.review-card {
+  min-height: 240px;
+}
+
+
 /* #map {
     height: 400px;
     width: 100%;

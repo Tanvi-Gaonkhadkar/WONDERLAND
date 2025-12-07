@@ -26,9 +26,6 @@ const reviewRouter = require("./routes/review.js");
 
 // DB URL
 const dbUrl = process.env.ATLASDB_URL;
- console.log("Registered Mongoose models:", mongoose.modelNames());
- console.log("App DB:", dbUrl);
-
 
 // Session store
 const store = MongoStore.create({
@@ -57,7 +54,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(
-  new LocalStrategy({ usernameField: "email", passwordField: "password" }, User.authenticate())
+  new LocalStrategy({ usernameField: "email" }, User.authenticate())
+  // new LocalStrategy({ usernameField: "email", passwordField: "password" }, User.authenticate())
 );
 
 passport.serializeUser(User.serializeUser());
@@ -91,11 +89,14 @@ app.get("/demouser", async (req, res) => {
 // Connect to DB and start server
 async function main() {
   try {
-    await mongoose.connect(dbUrl);
-mongoose.connect(process.env.ATLASDB_URL)
-  .then(() => {
-    console.log("Connected to DB:", mongoose.connection.name); // should be wonderlust
-  });
+//     await mongoose.connect(dbUrl);
+// mongoose.connect(process.env.ATLASDB_URL)
+//   .then(() => {
+//     console.log("Connected to DB:", mongoose.connection.name); // should be wonderlust
+//   });
+
+await mongoose.connect(dbUrl);
+console.log("Connected to DB:", mongoose.connection.name);
 
 
 const collections = await mongoose.connection.db.listCollections().toArray();

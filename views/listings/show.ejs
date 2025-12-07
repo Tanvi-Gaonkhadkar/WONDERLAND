@@ -35,13 +35,6 @@
 
     </div>
 
-    <!-- <ul>
-      <li><%= listing.title %></li>
-      <li><%= listing.description %></li>
-      <li>&#8377; <%= listing.price.toLocaleString("en-IN") %></li>
-      <li><%= listing.location %></li>
-      <li><%= listing.country %></li>
-    </ul> -->
     <br />
 
     <div class=" btns d-flex gap-2 mt-3">
@@ -62,7 +55,6 @@
 
           <div class="mb-3 mt-3">
             <label for="rating" class="form-label">Rating</label>
-            <!-- <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range" required> -->
             <div class="invalid-feedback">Please provide a rating</div>
           </div>
           <fieldset class="starability-slot">
@@ -101,12 +93,11 @@
         <%}%>
 
 
-
           <% if(listing.reviews.length>0){ %>
-            <div class="row">
+            <div class="row offset-3">
               <p><b>All Reviews</b></p>
               <% for (let review of listing.reviews) { %>
-                <div class="card col-6 ms-3 mb-3">
+                <div class="card col-6 ms-3  mb-3">
                   <div class="card-body">
                     <h5 class="card-title">@<%=review.author.name%>
                     </h5>
@@ -126,6 +117,8 @@
                 <% } %>
             </div>
             <% } %>
+
+
       </div>
   </div>
   <!-- <div class="col-6 offset-3 mb-3">
